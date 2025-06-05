@@ -1,7 +1,7 @@
 import { ApolloServer } from "apollo-server";
 import { connect } from "mongoose";
-import typeDefs from "./schemas/bookSchema.js";
-import resolvers from "./resolvers/bookResolver.js";
+import { typeDefs } from "./schemas/schema.js";
+import { resolvers } from "./resolvers/resolvers.js";
 
 connect("mongodb://localhost:27017/graphqlBooks", {
   useNewUrlParser: true,
@@ -16,6 +16,6 @@ const server = new ApolloServer({
   context: ({ req }) => ({ req }),
 });
 
-server.listen({ port: 4000 }).then(({ url }) => {
+server.listen({ port: 3000 }).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
